@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -53,7 +55,11 @@ public class EsperTfgApi {
     }
 
     public static boolean eplEventPatternExists(String eplEventPatternName){
-        return getService().getEPAdministrator().getStatement(eplEventPatternName).isDestroyed();
+        try{
+            return getService().getEPAdministrator().getStatement(eplEventPatternName).isDestroyed();
+        }catch (Exception e){
+            return false;
+        }
     }
 
     public static void deleteEplEventPattern(String eplEventPatternName){
