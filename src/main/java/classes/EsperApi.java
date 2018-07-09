@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 /**
@@ -17,7 +15,7 @@ import java.util.logging.Logger;
  *
  */
 
-public class EsperTfgApi {
+public class EsperApi {
 
     /** Service provider **/
     private static EPServiceProvider epService;
@@ -27,7 +25,7 @@ public class EsperTfgApi {
      */
 
     private static EPServiceProvider getService() {
-        synchronized(EsperTfgApi.class) {
+        synchronized(EsperApi.class) {
             if (epService == null)
                 epService = EPServiceProviderManager.getDefaultProvider(new Configuration());
         }
